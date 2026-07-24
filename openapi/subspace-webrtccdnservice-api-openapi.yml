@@ -1,0 +1,133 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: sales@subspace.com
+    name: Sales
+    url: https://subspace.com
+  description: "# Introduction\n\nThe Subspace API is based on REST, has resource-oriented URLs, returns JSON-encoded responses, and returns standard HTTP response codes.\n\nThe base URL for the API is:  `https://api.subspace.com/`\n\n# Naming Convention\n\n* Version name currently in use is: *v1*\n  * Example: `https://api.subspace.com/v1`\n\n# Authentication\n\n## API Tokens\n\nSubspace authenticates your API requests using JWT Bearer tokens. To use any Subspace API, you must pass a Bearer token with each request. If you do not include your Bearer token when making an API request, or use one that is incorrect or disabled, Subspace returns an error.\n\nBearer tokens are granted by requesting one (as noted below) and presenting your publishable (client_id) and secret (client_secret) tokens.   \n\nSubspace provides two types of API tokens: publishable (client_id) and secret (client_secret).  These are available in the Subspace console.\n  * **Publishable** API tokens (client_id) are meant solely to identify your account with Subspace, they aren’t secret. They can be published in places like your website JavaScript code, or in an iPhone or Android app.\n  * **Secret** API tokens (client_secret) should be kept confidential and only stored on your own servers. Your account’s secret API token will allow you to acquire a valid JWT token authorized to perform any API request to Subspace.\n\n## Getting a JWT Bearer Token\n\nSubspace uses auth0 for JWT token management.  You can acquire a JWT token by utilizing `https://id.subspace.com` and following the instructions in the curl example below.\n\n## Protecting Your API Tokens\n\n  * **JWT tokens have a expiration time of 24 hours.**  Once expired, you will have to use your Subspace private API and public token to request a new one.\n  * The Subspace private token can be rotated from within the Subspace console.\n  * **Keep your secret token safe.** Your secret token can make any API call on behalf of your account, including changes that may impact billing such as enabling pay-as-you-go charges. Do not store your secret token in your version control system. Do not use your secret token outside your web server, such as a browser, mobile app, or distributed file.\n  * **You may use the Subspace console to acquire an API token.**\n  * **You may use the Subspace console to disable pay-as-you-go.** This may prevent unexpected charges due to unauthorized or abnormal usage.\n  * **Do not embed API keys directly in code.** Instead of directly embedding API keys in your application’s code, put them in environment variables, or within include files that are stored separately from the bulk of your code—outside the source repository of your application. Then, if you share your code, the API keys will not be included in the shared files.\n  * **Do not store API tokens inside your application’s source control.** If you store API tokens in files, keep the files outside your application’s source control system. This is particularly important if you use a public source code management system such as GitHub.\n  * **Limit access with restricted tokens.** The Subspace console will allow you to specify the IP addresses or referrer URLs associated with each token, reducing the impact of a compromised API token.\n  * **Use independent API tokens for different apps.** This limits the scope of each token. If an API token is compromised, you can rotate the impacted token without impacting other API tokens.\n\n# Error Codes\n\nSubspace uses HTTP response codes to indicate the success or failure of an API request. \n\nGeneral HTML status codes:\n  * 2xx Success. \n  * 4xx Errors based on information provided in the request.\n  * 5xx Errors on Subspace servers.\n  \n# Security\n\nWe provide a valid, signed certificate for our API methods. Be sure your connection library supports HTTPS with the SNI extension.\n\n# REST How-To\n\nMaking your first REST API call is easy and can be done from your browser.  You will need:\n  * Your **secret** token and public client token, both found in the Console.\n  * The URL for the type of data you would like to request.\n\nFirst, acquire a JWT Bearer Token.  Command line example:\n    \n    curl --request POST \\\n         --url \"https://id.subspace.com/oauth/token\" \\\n         --header 'content-type: application/json' \\\n         --data '{ \"client_id\": \"YOURCLIENTID\", \"client_secret\": \"YOURCLIENTSECRET\", \"audience\": \"https://api.subspace.com/\", \"grant_type\": \"client_credentials\" }'\n\nREST calls are made up of:\n  * Base url: Example: `https://api.subspace.com`\n  * Version: Example: `v1`\n  * The API Endpoint and any parameters: `accelerator/acc_NDA3MUI5QzUtOTY4MC00Nz` where `acc_NDA3MUI5QzUtOTY4MC00Nz` is a valid accelerator ID\n  * Accelerator ids are always of the format `acc_NDA3MUI5QzUtOTY4MC00Nz`, with a \"acc_\" prefix followed by 22 characters.\n  * Token header: All REST requests require a valid JWT Bearer token which should be added as an “Authorization” header to the request:\n      \n      `Authorization: Bearer YOUR_TOKEN_HERE`\n  \n## Authorization header example\n\nIf your API token was “my_api_token”, you would add...\n\n    Authorization: Bearer my_api_token\n    \n...to the header.\n\n## Command line examples\n\nTo list your current open packet_accelerators using the token “my_api_token”:\n\n    curl -H “Authorization: Bearer my_api_token” https://api.subspace.com/v1/accelerator\n    \nAlternately, to get the details of a specific accelerator whose id is 'abcd-ef01-2345':\n\n    curl -H “Authorization: Bearer my_api_token” https://api.subspace.com/v1/accelerator/abcd-ef01-2345\n\n# API Versioning\n\nSubspace will release new versions when we make backwards-incompatible changes to the API. We will give advance notice before releasing a new version or retiring an old version.\n\nBackwards compatible changes:\n  * Adding new response attributes\n  * Adding new endpoints\n  * Adding new methods to an existing endpoint\n  * Adding new query string parameters\n  * Adding new path parameters\n  * Adding new webhook events\n  * Adding new streaming endpoints\n  * Changing the order of existing response attributes\n  \nVersions are added to the base url, for example:\n  * `https://api.subspace.com/v1`\n\nCurrent Version is **v1:** `https://api.subspace.com/v1`\n"
+  license:
+    name: CC BY-NC-ND 4.0
+    url: https://creativecommons.org/licenses/by-nc-nd/4.0/
+  title: Subspace Product AcceleratorService WebRtcCdnService API
+  version: '1.0'
+servers:
+- description: Current API host server
+  url: https://api.subspace.com
+security:
+- accessCode:
+  - accelerators:read
+  - accelerators:write
+  - sipteleport:read
+  - sipteleport:write
+tags:
+- name: WebRtcCdnService
+paths:
+  /v1/webrtc-cdn:
+    post:
+      operationId: WebRtcCdnService_GetWebRtcCdn
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1WebRtcCdnResponse'
+          description: A successful response.
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Access token is missing or invalid
+        '402':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Quota exceeded
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Not authorized
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when the resource does not exist.
+        '429':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Too many client requests
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      tags:
+      - WebRtcCdnService
+components:
+  schemas:
+    rpcStatus:
+      type: object
+    v1WebRtcCdnServer:
+      example:
+        urls: urls
+        credential: credential
+        username: username
+      properties:
+        username:
+          type: string
+        credential:
+          type: string
+        urls:
+          type: string
+      type: object
+    v1WebRtcCdnResponse:
+      example:
+        iceServers:
+        - urls: urls
+          credential: credential
+          username: username
+        - urls: urls
+          credential: credential
+          username: username
+        ttl: 0
+      properties:
+        iceServers:
+          items:
+            $ref: '#/components/schemas/v1WebRtcCdnServer'
+          type: array
+        ttl:
+          format: int64
+          type: integer
+      type: object
+  securitySchemes:
+    accessCode:
+      flows:
+        clientCredentials:
+          scopes:
+            accelerators:read: allows reading details about provisioned PacketAccelerators
+            accelerators:write: allows administration of PacketAccelerators
+            console:access: allows access to the console
+            sipteleport:read: allows reading details about provisioned SIPTeleport
+            sipteleport:write: allows administration of SIPTeleport
+            projects:read: allows reading details about projects
+            webrtccdn:access: allows administration of WebRTC-CDN
+            rtpspeed:read: allows reading details about rtpspeed
+            rtpspeed:write: allows administration of rtpspeed
+          tokenUrl: https://id.subspace.com/oauth/token
+      type: oauth2
+externalDocs:
+  description: Learn more with examples
+  url: https://subspace.com/
