@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/subspace-openapi-original.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: accessCode
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://id.subspace.com/oauth/token
+    scopes: 9
+  sources:
+  - openapi/subspace-openapi-original.yml

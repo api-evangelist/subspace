@@ -1,0 +1,17 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Subspace Product API
+  version: 1.0.0
+extends: openapi/subspace-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-21'
+    x-apievangelist-provider: subspace
+    x-apievangelist-notes: >-
+      Real-time network-as-a-service (PacketAccelerator, SIPTeleport,
+      WebRTC-CDN). OAuth2 client-credentials via Auth0. API/auth hosts no longer
+      resolve; SDKs and spec preserved from the subspace-com GitHub org.
+- target: $.servers
+  update:
+    x-apievangelist-server-status: api.subspace.com does not currently resolve

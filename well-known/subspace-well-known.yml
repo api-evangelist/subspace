@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of subspace.com / api.subspace.com / id.subspace.com
+hosts:
+- host: https://subspace.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+- host: https://api.subspace.com
+  documents:
+  - {path: /.well-known/security.txt, status: 0, note: host does not resolve}
+  - {path: /.well-known/openid-configuration, status: 0, note: host does not resolve}
+- host: https://id.subspace.com
+  documents:
+  - {path: /.well-known/openid-configuration, status: 0, note: Auth0 host does not resolve}
+notes: >-
+  No .well-known discovery documents were served. The marketing host returns 404
+  for well-known paths; the API and Auth0 identity hosts no longer resolve.

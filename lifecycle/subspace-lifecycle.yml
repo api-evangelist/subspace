@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/subspace-openapi-original.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.subspace.com/v1
+  note: >-
+    Version name currently in use is v1, appended to the base URL
+    (https://api.subspace.com/v1) per the OpenAPI info description.
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page:
+  url: https://status.subspace.com
+  reachable: false
+  note: >-
+    A status page is referenced by the marketing site (status.subspace.com) but
+    the host does not currently resolve — the Subspace real-time-network service
+    has wound down operationally. Recorded for provenance, not emitted as a live
+    StatusPage pointer.
+deprecated_operations: []
+notes: >-
+  JWT bearer tokens carry a 24-hour expiration; WebRTC-CDN ICE credentials carry
+  a per-response ttl. The marketing site (www.subspace.com) remains live but the
+  API/auth/status hosts (api., id., status.subspace.com) no longer resolve.

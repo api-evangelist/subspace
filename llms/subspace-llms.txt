@@ -1,0 +1,29 @@
+# Subspace
+
+> Subspace was a real-time network-as-a-service platform — a dedicated global network built for latency-sensitive applications (WebRTC, VoIP/SIP, video conferencing, multiplayer gaming, fintech). Its Product API provisions PacketAccelerator, SIPTeleport, and WebRTC-CDN services. Authentication is OAuth2 client-credentials issuing 24-hour JWT bearer tokens via Auth0.
+
+Note: The marketing site (www.subspace.com) remains reachable, but the API, identity, and status hosts (api./id./status.subspace.com) no longer resolve — the service has wound down operationally. Specs and SDKs below are preserved from the public subspace-com GitHub organization.
+
+## APIs
+- [Subspace Product API (OpenAPI)](https://raw.githubusercontent.com/subspace-com/subspace_go_openapi_client/main/api/openapi.yaml): REST, v1, base URL https://api.subspace.com/v1
+
+## Specs
+- [OpenAPI 3.0.1](openapi/subspace-openapi-original.yml): 11 operations across Accelerator, SipTeleport, and WebRTC-CDN services
+- [OAuth Scopes](scopes/subspace-scopes.yml): 9 client-credentials scopes
+- [Authentication](authentication/subspace-authentication.yml): OAuth2 client-credentials, JWT bearer
+- [Error catalog](errors/subspace-problem-types.yml)
+- [Conventions](conventions/subspace-conventions.yml): cursor pagination, no idempotency
+- [Data model](data-model/subspace-data-model.yml)
+
+## SDKs
+- [JavaScript client](https://github.com/subspace-com/subspace_javascript_openapi_client)
+- [Python client](https://github.com/subspace-com/subspace_python_openapi_client)
+- [Java client](https://github.com/subspace-com/subspace_java_openapi_client)
+- [Go client](https://github.com/subspace-com/subspace_go_openapi_client)
+- [Rust client](https://github.com/subspace-com/subspace_rust_openapi_client)
+- [Elixir client](https://github.com/subspace-com/subspace_elixir_openapi_client)
+
+## Docs
+- [Website](https://www.subspace.com/)
+- [GitHub organization](https://github.com/subspace-com)
+- [REST examples](https://github.com/subspace-com/examples)

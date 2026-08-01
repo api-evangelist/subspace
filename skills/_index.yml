@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/subspace-openapi-original.yml
+skills:
+- file: subspace-provision-packet-accelerator.md
+  name: Provision a PacketAccelerator
+  api: openapi/subspace-openapi-original.yml
+  operations: [AcceleratorService_Create, AcceleratorService_List, AcceleratorService_Get, AcceleratorService_Delete]
+- file: subspace-provision-sipteleport.md
+  name: Provision a SIPTeleport
+  api: openapi/subspace-openapi-original.yml
+  operations: [SipTeleportService_Create, SipTeleportService_List, SipTeleportService_Get, SipTeleportService_Update, SipTeleportService_Delete]

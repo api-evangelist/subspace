@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/subspace-com
+packages:
+- language: javascript
+  registry: github
+  name: subspace_javascript_openapi_client
+  url: https://github.com/subspace-com/subspace_javascript_openapi_client
+  official: true
+- language: python
+  registry: github
+  name: subspace_python_openapi_client
+  url: https://github.com/subspace-com/subspace_python_openapi_client
+  official: true
+- language: java
+  registry: github
+  name: subspace_java_openapi_client
+  url: https://github.com/subspace-com/subspace_java_openapi_client
+  official: true
+- language: rust
+  registry: github
+  name: subspace_rust_openapi_client
+  url: https://github.com/subspace-com/subspace_rust_openapi_client
+  official: true
+- language: go
+  registry: github
+  name: subspace_go_openapi_client
+  url: https://github.com/subspace-com/subspace_go_openapi_client
+  official: true
+- language: elixir
+  registry: github
+  name: subspace_elixir_openapi_client
+  url: https://github.com/subspace-com/subspace_elixir_openapi_client
+  official: true
+notes: >-
+  Six first-party OpenAPI-generated client libraries published under the
+  subspace-com GitHub organization (MIT licensed). Distributed as source
+  repositories rather than language-registry packages. The Go client carries
+  the canonical api/openapi.yaml used to generate all six.

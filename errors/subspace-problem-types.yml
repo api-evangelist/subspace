@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/subspace-openapi-original.yml
+format: http-status
+envelope: >-
+  Default error responses return a JSON object. The catch-all "default"
+  response references the rpcStatus schema (grpc-gateway style: code, message,
+  details[]). 2xx/4xx/5xx HTTP status codes indicate success or failure per the
+  API introduction.
+problems:
+- status: 400
+  title: Bad request
+  meaning: The request was malformed or contained invalid parameters.
+- status: 401
+  title: Access token is missing or invalid
+  meaning: No valid JWT Bearer token was supplied.
+  action: Acquire a fresh JWT from https://id.subspace.com/oauth/token using your client_id and client_secret.
+- status: 402
+  title: Quota exceeded
+  meaning: The account plan quota has been exceeded.
+  action: Review plan limits or enable pay-as-you-go in the Subspace console.
+- status: 403
+  title: Not authorized
+  meaning: The token lacks the scope required for this operation.
+- status: 404
+  title: Resource not found
+  meaning: Returned when the referenced resource does not exist.
+- status: 409
+  title: Conflict
+  meaning: The resource could not be created/updated due to a conflict (e.g. duplicate).
+  source_operation: openapi/subspace-openapi-original.yml#AcceleratorService_Create
+- status: 429
+  title: Too many client requests
+  meaning: The client has sent too many requests in a given amount of time (rate limited).
+- status: default
+  title: Unexpected error
+  schema: rpcStatus
+  meaning: An unexpected error response (grpc-gateway rpcStatus envelope).

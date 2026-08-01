@@ -1,0 +1,65 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/subspace-openapi-original.yml
+entities:
+- name: Accelerator
+  schema: v1Accelerator
+  description: A provisioned PacketAccelerator that accelerates traffic to a destination IP/port.
+  fields:
+  - id
+  - name
+  - destination_ip
+  - destination_port
+  - subspace_ipv4
+  - subspace_port
+- name: SipTeleport
+  schema: v1SipTeleportResponse
+  description: A provisioned SIPTeleport improving SIP/VoIP call quality.
+  fields:
+  - id
+  - name
+  - destination
+  - teleport_entry_points
+  - status
+  - date_created
+  - date_updated
+- name: TeleportAddresses
+  schema: v1TeleportAddresses
+  description: An entry-point address (and transport type) for a SIPTeleport.
+  fields:
+  - address
+  - transport_type
+- name: WebRtcCdnResponse
+  schema: v1WebRtcCdnResponse
+  description: WebRTC-CDN ICE server configuration returned to clients.
+  fields:
+  - iceServers
+  - ttl
+- name: WebRtcCdnServer
+  schema: v1WebRtcCdnServer
+  description: A single ICE (STUN/TURN) server entry.
+  fields:
+  - urls
+  - username
+  - credential
+- name: Project
+  schema: null
+  description: Referenced only via the projects:read scope; no schema is exposed in this spec.
+relationships:
+- from: SipTeleport
+  to: TeleportAddresses
+  type: has_many
+  via: teleport_entry_points
+- from: SipTeleport
+  to: SipTeleportStatus
+  type: has_one
+  via: status
+- from: WebRtcCdnResponse
+  to: WebRtcCdnServer
+  type: has_many
+  via: iceServers
+enums:
+- name: v1SipTeleportStatus
+  values: [UNKNOWN, DISABLED, ENABLED]
+- name: v1TransportType
+  values: [UDP_TCP, TLS]

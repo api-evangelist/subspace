@@ -1,0 +1,64 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/subspace-openapi-original.yml
+schemes:
+- name: accessCode
+  source: openapi/subspace-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://id.subspace.com/oauth/token
+scopes:
+- scope: accelerators:read
+  description: allows reading details about provisioned PacketAccelerators
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: accelerators:write
+  description: allows administration of PacketAccelerators
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: console:access
+  description: allows access to the console
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: projects:read
+  description: allows reading details about projects
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: rtpspeed:read
+  description: allows reading details about rtpspeed
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: rtpspeed:write
+  description: allows administration of rtpspeed
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: sipteleport:read
+  description: allows reading details about provisioned SIPTeleport
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: sipteleport:write
+  description: allows administration of SIPTeleport
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml
+- scope: webrtccdn:access
+  description: allows administration of WebRTC-CDN
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/subspace-openapi-original.yml

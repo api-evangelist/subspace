@@ -1,20 +1,82 @@
 aid: subspace
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/subspace.png
 name: Subspace
-description: Subspace is a company surfaced as a portfolio company of bloomberg-beta and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Subspace was a real-time network-as-a-service platform delivering a dedicated,
+  performance-optimized global network for latency-sensitive applications —
+  WebRTC, VoIP/SIP calling, video conferencing, multiplayer gaming, and fintech.
+  Its Product API provisions three services: PacketAccelerator (no-code global
+  internet acceleration), SIPTeleport (SIP/VoIP call-quality improvement), and
+  WebRTC-CDN (instant global WebRTC acceleration with ICE server configuration).
+  The REST API uses resource-oriented URLs and JSON responses, versioned at v1,
+  authenticated with OAuth2 client-credentials issuing 24-hour JWT bearer tokens
+  via Auth0, and ships six first-party OpenAPI client SDKs. The company was a
+  Bloomberg Beta portfolio company; its marketing site remains live while the
+  API, identity, and status hosts have wound down operationally.
 url: https://raw.githubusercontent.com/api-evangelist/subspace/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - bloomberg-beta
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: real-api-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Networking
+- Real-Time
+- WebRTC
+- VoIP
+- SIP
+- CDN
+- Gaming
+- Latency
+- Infrastructure
+apis:
+- aid: subspace:subspace-acceleratorservice-api
+  name: Subspace AcceleratorService API
+  description: The AcceleratorService API from Subspace — 2 operation(s) for acceleratorservice.
+  humanURL: https://www.subspace.com/
+  baseURL: https://api.subspace.com/v1
+  tags:
+  - AcceleratorService
+  properties:
+  - type: OpenAPI
+    url: openapi/subspace-acceleratorservice-api-openapi.yml
+- aid: subspace:subspace-sipteleportservice-api
+  name: Subspace SipTeleportService API
+  description: The SipTeleportService API from Subspace — 2 operation(s) for sipteleportservice.
+  humanURL: https://www.subspace.com/
+  baseURL: https://api.subspace.com/v1
+  tags:
+  - SipTeleportService
+  properties:
+  - type: OpenAPI
+    url: openapi/subspace-sipteleportservice-api-openapi.yml
+- aid: subspace:subspace-webrtccdnservice-api
+  name: Subspace WebRtcCdnService API
+  description: The WebRtcCdnService API from Subspace — 1 operation(s) for webrtccdnservice.
+  humanURL: https://www.subspace.com/
+  baseURL: https://api.subspace.com/v1
+  tags:
+  - WebRtcCdnService
+  properties:
+  - type: OpenAPI
+    url: openapi/subspace-webrtccdnservice-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +85,54 @@ maintainers:
 common:
 - type: Website
   url: https://www.subspace.com/
+- type: DeveloperPortal
+  url: https://console.subspace.com/
+- type: Documentation
+  url: https://subspace.com/resources?category=documentation
+- type: APIReference
+  url: https://subspace.com/api
+- type: Pricing
+  url: https://subspace.com/pricing
+- type: SignUp
+  url: https://console.subspace.com/
+- type: Security
+  url: https://subspace.com/security
+- type: GitHubOrganization
+  url: https://github.com/subspace-com
+- type: LLMsTxt
+  url: llms/subspace-llms.txt
+- type: Packages
+  url: packages/subspace-packages.yml
+- type: SDKs
+  url: packages/subspace-packages.yml
+- type: MCPServer
+  url: mcp/subspace-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Conventions
+  url: conventions/subspace-conventions.yml
+- type: DataModel
+  url: data-model/subspace-data-model.yml
+- type: ErrorCatalog
+  url: errors/subspace-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/subspace-lifecycle.yml
+- type: Conformance
+  url: conformance/subspace-conformance.yml
+- type: Authentication
+  url: authentication/subspace-authentication.yml
+- type: OAuthScopes
+  url: scopes/subspace-scopes.yml
+- type: AgenticAccess
+  url: agentic-access/subspace-agentic-access.yml
+- type: DomainSecurity
+  url: security/subspace-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/subspace-vulnerability-disclosure.yml
+- type: WellKnown
+  url: well-known/subspace-well-known.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

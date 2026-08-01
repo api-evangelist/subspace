@@ -1,0 +1,18 @@
+{
+  "provider": "subspace",
+  "sources": [
+    "subspace-acceleratorservice-api-openapi.yml",
+    "subspace-sipteleportservice-api-openapi.yml",
+    "subspace-webrtccdnservice-api-openapi.yml"
+  ],
+  "outputs": [
+    "subspace-acceleratorservice-api-openapi.yml",
+    "subspace-sipteleportservice-api-openapi.yml",
+    "subspace-webrtccdnservice-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/subspace-openapi-original.yml
+server:
+  name: subspace
+  transport: http
+tools:
+- name: list_accelerators
+  description: List provisioned PacketAccelerators
+  source_operation: openapi/subspace-openapi-original.yml#AcceleratorService_List
+- name: create_accelerator
+  description: Create a PacketAccelerator
+  source_operation: openapi/subspace-openapi-original.yml#AcceleratorService_Create
+- name: get_accelerator
+  description: Get a PacketAccelerator by id
+  source_operation: openapi/subspace-openapi-original.yml#AcceleratorService_Get
+- name: update_accelerator
+  description: Update a PacketAccelerator
+  source_operation: openapi/subspace-openapi-original.yml#AcceleratorService_Update
+- name: delete_accelerator
+  description: Delete a PacketAccelerator
+  source_operation: openapi/subspace-openapi-original.yml#AcceleratorService_Delete
+- name: list_sipteleports
+  description: List provisioned SIPTeleport entries
+  source_operation: openapi/subspace-openapi-original.yml#SipTeleportService_List
+- name: create_sipteleport
+  description: Create a SIPTeleport
+  source_operation: openapi/subspace-openapi-original.yml#SipTeleportService_Create
+- name: get_sipteleport
+  description: Get a SIPTeleport by id
+  source_operation: openapi/subspace-openapi-original.yml#SipTeleportService_Get
+- name: update_sipteleport
+  description: Update a SIPTeleport
+  source_operation: openapi/subspace-openapi-original.yml#SipTeleportService_Update
+- name: delete_sipteleport
+  description: Delete a SIPTeleport
+  source_operation: openapi/subspace-openapi-original.yml#SipTeleportService_Delete
+- name: get_webrtc_cdn
+  description: Get WebRTC-CDN ICE server configuration
+  source_operation: openapi/subspace-openapi-original.yml#WebRtcCdnService_GetWebRtcCdn
+notes: >-
+  Candidate tool list derived one-per-operation from the Subspace OpenAPI. No
+  official hosted/remote MCP server was found. API infrastructure hosts
+  (api.subspace.com, id.subspace.com) do not currently resolve.

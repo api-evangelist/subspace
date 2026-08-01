@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/subspace-openapi-original.yml
+authentication:
+  style: oauth2-client-credentials
+  transport: JWT Bearer token in Authorization header
+  token_url: https://id.subspace.com/oauth/token
+  token_ttl: 24h
+  ref: authentication/subspace-authentication.yml
+idempotency:
+  supported: false
+  note: The OpenAPI declares no Idempotency-Key header or parameter.
+pagination:
+  style: cursor
+  response_field: next_page
+  cursor_fields:
+  - before
+  - limit
+  schema: v1NextPage
+  note: List responses (accelerator, sipteleport) return a data[] array plus a next_page cursor object.
+versioning:
+  style: uri-path
+  current: v1
+  ref: lifecycle/subspace-lifecycle.yml
+error_envelope:
+  style: http-status + grpc-gateway rpcStatus (default response)
+  ref: errors/subspace-problem-types.yml
+rate_limit_signaling:
+  status_code: 429
+  note: A 429 "Too many client requests" response is defined; no documented rate-limit response headers in the spec.
+media_type: application/json

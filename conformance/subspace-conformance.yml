@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/subspace-openapi-original.yml
+standards:
+- id: oauth2
+  conforms: true
+  evidence: securitySchemes declares an oauth2 scheme (clientCredentials flow) with 9 scopes
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: tokenUrl https://id.subspace.com/oauth/token, machine-to-machine flow
+- id: oidc
+  conforms: false
+  evidence: JWT issued via Auth0 (id.subspace.com) but no openIdConnect scheme declared in the spec
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: error responses return generic JSON objects / grpc-gateway rpcStatus, not application/problem+json
+- id: rest-json
+  conforms: true
+  evidence: resource-oriented URLs, JSON-encoded responses, standard HTTP status codes
+- id: cursor-pagination
+  conforms: true
+  evidence: list responses carry a next_page (v1NextPage) cursor object
+- id: fhir-r4
+  conforms: false
+- id: scim
+  conforms: false
+- id: fapi
+  conforms: false
