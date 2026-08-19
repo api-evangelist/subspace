@@ -39,7 +39,12 @@ tools:
 - name: get_webrtc_cdn
   description: Get WebRTC-CDN ICE server configuration
   source_operation: openapi/subspace-openapi-original.yml#WebRtcCdnService_GetWebRtcCdn
-notes: >-
-  Candidate tool list derived one-per-operation from the Subspace OpenAPI. No
-  official hosted/remote MCP server was found. API infrastructure hosts
-  (api.subspace.com, id.subspace.com) do not currently resolve.
+notes: Candidate tool list derived one-per-operation from the Subspace OpenAPI. No official hosted/remote
+  MCP server was found. API infrastructure hosts (api.subspace.com, id.subspace.com) do not currently
+  resolve.
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census

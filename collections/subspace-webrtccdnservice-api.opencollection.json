@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Subspace Product AcceleratorService WebRtcCdnService API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://id.subspace.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WebRtcCdnService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "WebRtcCdnService_GetWebRtcCdn",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.subspace.com/v1/webrtc-cdn"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
