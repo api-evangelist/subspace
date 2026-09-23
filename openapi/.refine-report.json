@@ -1,9 +1,7 @@
 {
   "provider": "subspace",
   "sources": [
-    "subspace-acceleratorservice-api-openapi.yml",
-    "subspace-sipteleportservice-api-openapi.yml",
-    "subspace-webrtccdnservice-api-openapi.yml"
+    "_original/subspace-openapi-original.yml"
   ],
   "outputs": [
     "subspace-acceleratorservice-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "subspace-openapi-original.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "subspace-openapi-original.yml: declared missing tag: AcceleratorService",
+    "subspace-openapi-original.yml: declared missing tag: SipTeleportService",
+    "subspace-openapi-original.yml: declared missing tag: WebRtcCdnService",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "subspace-acceleratorservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "subspace-sipteleportservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "subspace-webrtccdnservice-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
