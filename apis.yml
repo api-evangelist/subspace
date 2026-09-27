@@ -151,3 +151,4 @@ x-enrichment:
   status: enriched
   artifacts_added: 17
   pass: local-v1
+x-status: defunct

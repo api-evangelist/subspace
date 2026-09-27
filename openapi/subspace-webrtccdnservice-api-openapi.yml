@@ -85,19 +85,6 @@ components:
   schemas:
     rpcStatus:
       type: object
-    v1WebRtcCdnServer:
-      example:
-        urls: urls
-        credential: credential
-        username: username
-      properties:
-        username:
-          type: string
-        credential:
-          type: string
-        urls:
-          type: string
-      type: object
     v1WebRtcCdnResponse:
       example:
         iceServers:
@@ -116,6 +103,19 @@ components:
         ttl:
           format: int64
           type: integer
+      type: object
+    v1WebRtcCdnServer:
+      example:
+        urls: urls
+        credential: credential
+        username: username
+      properties:
+        username:
+          type: string
+        credential:
+          type: string
+        urls:
+          type: string
       type: object
   securitySchemes:
     accessCode:

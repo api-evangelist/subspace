@@ -402,6 +402,52 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    body:
+      properties:
+        name:
+          description: Name of PacketAccelerator
+          type: string
+        destination_ip:
+          description: Destination IP, e.g. 1.2.3.4
+          type: string
+        destination_port:
+          description: Destination port, e.g. 443
+          type: integer
+        subspace_port:
+          description: Optional per plan, Specify the Subspace-returned ingress port
+          type: integer
+      required:
+      - destination_ip
+      - destination_port
+      - name
+      type: object
+    v1DeleteAcceleratorResponse:
+      type: object
+    v1Accelerator:
+      example:
+        subspace_port: 6
+        destination_ip: destination_ip
+        destination_port: 0
+        name: name
+        subspace_ipv4: subspace_ipv4
+        id: id
+      properties:
+        destination_ip:
+          type: string
+        destination_port:
+          format: int64
+          type: integer
+        id:
+          type: string
+        name:
+          type: string
+        subspace_ipv4:
+          title: "Protocol\tprotocol\t\t= 5;\nstring\tsubspace_ip\t\t= 8;"
+          type: string
+        subspace_port:
+          format: int64
+          type: integer
+      type: object
     body_1:
       properties:
         name:
@@ -447,52 +493,6 @@ components:
           type: integer
       type: object
     rpcStatus:
-      type: object
-    v1Accelerator:
-      example:
-        subspace_port: 6
-        destination_ip: destination_ip
-        destination_port: 0
-        name: name
-        subspace_ipv4: subspace_ipv4
-        id: id
-      properties:
-        destination_ip:
-          type: string
-        destination_port:
-          format: int64
-          type: integer
-        id:
-          type: string
-        name:
-          type: string
-        subspace_ipv4:
-          title: "Protocol\tprotocol\t\t= 5;\nstring\tsubspace_ip\t\t= 8;"
-          type: string
-        subspace_port:
-          format: int64
-          type: integer
-      type: object
-    v1DeleteAcceleratorResponse:
-      type: object
-    body:
-      properties:
-        name:
-          description: Name of PacketAccelerator
-          type: string
-        destination_ip:
-          description: Destination IP, e.g. 1.2.3.4
-          type: string
-        destination_port:
-          description: Destination port, e.g. 443
-          type: integer
-        subspace_port:
-          description: Optional per plan, Specify the Subspace-returned ingress port
-          type: integer
-      required:
-      - destination_ip
-      - destination_port
-      - name
       type: object
   securitySchemes:
     accessCode:
