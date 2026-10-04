@@ -376,30 +376,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    v1SipTeleportStatus:
-      default: UNKNOWN
-      enum:
-      - UNKNOWN
-      - DISABLED
-      - ENABLED
-      type: string
-    rpcStatus:
-      type: object
-    v1TransportType:
-      default: UDP_TCP
-      enum:
-      - UDP_TCP
-      - TLS
-      type: string
-    v1TeleportAddresses:
-      example:
-        address: address
-      properties:
-        address:
-          type: string
-        transport_type:
-          $ref: '#/components/schemas/v1TransportType'
-      type: object
     v1CreateSipTeleport:
       properties:
         name:
@@ -415,20 +391,16 @@ components:
       - destination
       - name
       type: object
-    v1UpdateSipTeleport:
+    rpcStatus:
+      type: object
+    v1TeleportAddresses:
+      example:
+        address: address
       properties:
-        name:
-          description: Name of SIPTeleport
+        address:
           type: string
-        destination:
-          description: Destination of SIPTeleport
-          type: string
-        status:
-          $ref: '#/components/schemas/v1SipTeleportStatus'
-      required:
-      - destination
-      - name
-      - status
+        transport_type:
+          $ref: '#/components/schemas/v1TransportType'
       type: object
     v1NextPage:
       example:
@@ -472,6 +444,13 @@ components:
           format: date-time
           type: string
       type: object
+    v1SipTeleportStatus:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - DISABLED
+      - ENABLED
+      type: string
     v1ListSipTeleportResponse:
       example:
         next_page:
@@ -501,6 +480,27 @@ components:
           type: array
         next_page:
           $ref: '#/components/schemas/v1NextPage'
+      type: object
+    v1TransportType:
+      default: UDP_TCP
+      enum:
+      - UDP_TCP
+      - TLS
+      type: string
+    v1UpdateSipTeleport:
+      properties:
+        name:
+          description: Name of SIPTeleport
+          type: string
+        destination:
+          description: Destination of SIPTeleport
+          type: string
+        status:
+          $ref: '#/components/schemas/v1SipTeleportStatus'
+      required:
+      - destination
+      - name
+      - status
       type: object
   securitySchemes:
     accessCode:
