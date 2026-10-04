@@ -58,6 +58,7 @@ tags:
 - Gaming
 - Latency
 - Infrastructure
+- Defunct
 apis:
 - aid: subspace:subspace-acceleratorservice-api
   name: Subspace AcceleratorService API
