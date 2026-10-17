@@ -83,8 +83,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    rpcStatus:
-      type: object
     v1WebRtcCdnResponse:
       example:
         iceServers:
@@ -116,6 +114,8 @@ components:
           type: string
         urls:
           type: string
+      type: object
+    rpcStatus:
       type: object
   securitySchemes:
     accessCode:
