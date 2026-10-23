@@ -513,3 +513,9 @@ components:
 externalDocs:
   description: Learn more with examples
   url: https://subspace.com/
+x-provenance:
+  method: harvested
+  publisher: Subspace
+  source: https://raw.githubusercontent.com/subspace-com/subspace_go_openapi_client/HEAD/api/openapi.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
